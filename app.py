@@ -5,7 +5,8 @@ from blueprints.user_login import bp as user_login
 
 
 
-app = Flask ( __name__)
+application = Flask ( __name__)
+app = application
 app.register_blueprint ( user_login , url_prefix="/user"  )
 app.secret_key = "hello"
 app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{app.root_path}/app.db"
@@ -23,7 +24,7 @@ class users ( db.Model ):
 
 app.config['USERS'] = users
 
-@app.route ("/")
+@application.route ("/")
 def home() :
     return redirect ( url_for ("user_login.index"))
 
