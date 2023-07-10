@@ -1,0 +1,121 @@
+body {
+    position: relative;
+    padding-top: 10px;
+  }
+  
+  #home {
+    padding-top: 50px;
+    min-height: 800px;
+    background: url(https://goo.gl/0Yn1Qu) no-repeat center center fixed;
+    background-size: cover;
+  }
+   
+  #about {
+    padding-top: 50px;
+    min-height: 800px;
+    background: url(https://goo.gl/ZIsftg) no-repeat center center fixed; 
+    background-size: cover;
+  }
+  
+  #contacts {
+    padding-top: 50px;
+    min-height: 800px;
+    background: url(https://goo.gl/ppXbqH) no-repeat center center fixed; 
+    background-size: cover;
+  }
+  
+  #projects {
+    padding-top: 50px;
+    min-height: 800px;
+    background: url(https://goo.gl/Rdqo5C) no-repeat center center fixed; 
+    background-size: cover;
+  }
+  
+  @media all and (max-device-width: 1024px) {
+    #home {
+      background-attachment: scroll;
+    }
+    #about {
+      background-attachment: scroll;
+    }
+    #projects {
+      background-attachment: scroll;
+    }
+    #contacts {
+      background-attachment: scroll;
+    }
+  }
+  
+  .translucent {
+    background-color: rgba(255, 255, 255, 0.65)!important;
+  }
+  
+  .centered-container {
+    text-align:center;
+  }
+  
+  .headline {
+      font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .button-list {
+    list-style-type: none;
+  }
+  
+  .button-list li {
+    margin-bottom: 10px;
+  }
+  
+  .myHR {
+    border-style: inset;
+    border-width: 1px;
+    margin-top: 10px;
+  }
+  
+  .Three-D{
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1em;
+  font-size: 50px;
+  text-shadow:0px 0px 0 rgb(231,231,231),1px 1px 0 rgb(216,216,216),2px 2px 0 rgb(202,202,202),3px 3px 0 rgb(187,187,187),4px 4px 0 rgb(173,173,173),5px 5px 0 rgb(158,158,158), 6px 6px 0 rgb(144,144,144),7px 7px 6px rgba(214, 175, 175, 0.6),7px 7px 1px rgba(201, 171, 171, 0.5),0px 0px 6px rgba(4, 2, 2, 0.2);}
+  
+.Three-D a { 
+    text-decoration: none;
+
+    color: yellow;
+}
+
+  .thumbnail iframe {
+    width: 800px;
+    height: 600px;
+  }
+  
+  .thumbnail {
+    position: relative;
+    -ms-zoom: 0.25;
+    -moz-transform: scale(0.25);
+    -moz-transform-origin: 0 0;
+    -o-transform: scale(0.25);
+    -o-transform-origin: 0 0;
+    -webkit-transform: scale(0.25);
+    -webkit-transform-origin: 0 0;
+    overflow: hidden;
+  }
+  
+  .portfolio-text {
+    margin: 0 0 0 0;
+    background-color: blue;
+    color: white;
+  }
+  
+  .proj-gallery {
+    display: table;
+  }
+  
+  .proj-item {
+    display: block;
+  }
+  
+  .proj-item img {
+    width: 320px;
+    height: 180px;
+  }

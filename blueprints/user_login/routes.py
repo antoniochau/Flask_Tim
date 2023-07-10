@@ -26,26 +26,32 @@ def login() :
     db = current_app.config["DB"]
 
     if request.method == 'POST':
-        user = request.form['nm']
-        session['user'] = user
+        access_code = request.form['access_code']
+        
+        
+        #session['user'] = user
 
-        found_user = users.query.filter_by(name=user).first()
+        #found_user = users.query.filter_by(name=user).first()
 
-        if found_user:
-            session['email'] = found_user.email
-
+        if access_code == "1928":
+            #session['email'] = found_user.email
+            session['access_right'] = True
+            flash ( "login success")
+            return redirect ( url_for("panel.index"))
         else:
-            usr = users ( user, "")
-            db.session.add ( usr )
-            db.session.commit()
-
-
-        flash ("login success")
-        return redirect ( url_for("user_login.index"))
+            print ( "fdsfds")
+            #usr = users ( user, "")
+            #db.session.add ( usr )
+            #db.session.commit()
+            return redirect ( url_for("user_login.index"))
+        
     else:
-        if "user" in session:
+        print ("fdsf")
+        if "access_right" in session:
             flash ("already login")
-            return redirect ( url_for ("user_login.index"))
+            print ( "lll")
+            return redirect ( url_for ("panel.index"))
+        print ( "ddd")
         return render_template ("user_login/login.html")
     
 @user_login.route ("/user", methods=['POST','GET'])

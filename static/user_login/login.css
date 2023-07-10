@@ -1,0 +1,60 @@
+
+body{
+    margin:0;
+  background:url("https://cdn.pixabay.com/photo/2017/12/16/16/37/mountain-3022906_1280.jpg") ;
+
+   no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  h2{
+    margin-top:50px;
+    text-align:center;
+    color:orangered;
+    font-family:Arial;
+    font-size:30px;
+  }
+  form{
+    margin:auto;
+    margin-top:5px;
+    display:flex;
+    flex-direction:column;
+    padding:20px;
+    width:30%;
+    background-color:rgba(0,0,0,0.3);
+  color:white;
+    font-family:Arial;
+  }
+  input{
+    padding:10px;
+    border:none;
+    width:90%;
+    border-radius:20px;
+  }
+  .btn{
+    margin-top:10px;
+    border:none;
+    padding:10px;
+    background-color:green;
+    color:white;
+    width:100%;
+    border-radius:20px;
+  }
+  .btn:hover{
+    background-color:green;
+    color:white;
+  }
+  .forget{
+    padding:10px;
+  }
+  .forget a{
+    text-decoration:none;
+    color:white;
+    
+  }
+  .forget a:hover{
+    color:black;
+  }
+  
