@@ -1,6 +1,15 @@
 <link rel="stylesheet" href="/static/user_login/login.css" type="text/css">
 {% block body %} 
 
+<div class="split left">
+  <div class="centered">
+
+    <h2>Welcome to my Flask Portal</h2>
+    <h4>Please enter access code</h4>
+  </div>
+</div>
+
+
 
 <form action="/user/login" method="post">
   <br>
@@ -8,5 +17,6 @@
   <br>
 
 <button type="submit" class="btn btn-primary">Login</button>
+<br>
 </form>
 {% endblock %}

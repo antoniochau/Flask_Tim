@@ -1,43 +1,74 @@
 
+/* Split the screen in half */
+.split {
+  height: 100%;
+  width: 20%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: rgba(7, 1, 15, 0.8);
+}
+
+
+
 body{
     margin:0;
-  background:url("https://cdn.pixabay.com/photo/2017/12/16/16/37/mountain-3022906_1280.jpg") ;
-
+    background:url("wall.jpg") ;
+  
    no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    color:rgb(232, 237, 238);
   }
   h2{
     margin-top:50px;
-    text-align:center;
-    color:orangered;
+    margin-left:50px;
+    text-align:left;
+    color:rgb(232, 237, 238);
     font-family:Arial;
-    font-size:30px;
+    font-size:20px;
   }
+
+  h4{
+    margin-left:50px;
+    text-align:left;
+    color:rgb(232, 237, 238);
+    font-family:Arial;
+    font-size:15px;
+  }
+
   form{
     margin:auto;
-    margin-top:5px;
+    margin-top:35px;
+    margin-left:80%;
     display:flex;
     flex-direction:column;
     padding:20px;
-    width:30%;
-    background-color:rgba(0,0,0,0.3);
+    width:10%;
+    background-color:rgb(38, 43, 41);
   color:white;
     font-family:Arial;
   }
   input{
     padding:10px;
     border:none;
-    width:90%;
+    width:100%;
     border-radius:20px;
   }
   .btn{
     margin-top:10px;
     border:none;
     padding:10px;
-    background-color:green;
+    background-color:red;
     color:white;
     width:100%;
     border-radius:20px;
@@ -58,3 +89,22 @@ body{
     color:black;
   }
   
+
+  .box-column {
+    width: 350px;
+    border: 1px groove;
+    padding: 5px;
+    }
+    .color-box {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    }
+    .color-box li {
+    color: #fff;
+    padding: 10px 10px 10px 15px;
+    background-color: brown;
+    margin-bottom: 3px;
+    font-size: 26px;
+    }
+    HTML for Menu Box 2:
