@@ -2,7 +2,7 @@ from flask import Flask, redirect, url_for, render_template, session, request, f
 from flask_sqlalchemy import SQLAlchemy
 from blueprints.user_login import bp as user_login
 from blueprints.panel import bp as panel
-
+from blueprints.docusign import bp as docusign
 
 
 
@@ -13,6 +13,8 @@ app = application
 
 app.register_blueprint ( user_login , url_prefix="/user"  )
 app.register_blueprint ( panel , url_prefix="/panel"  )
+app.register_blueprint ( docusign , url_prefix="/docusign"  )
+
 
 app.secret_key = "hello"
 app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{app.root_path}/app.db"
