@@ -4,6 +4,10 @@ from blueprints.user_login import bp as user_login
 from blueprints.panel import bp as panel
 from blueprints.docusign import bp as docusign
 
+import os
+from werkzeug.utils import secure_filename
+
+UPLOAD_FOLDER = 'file_folder'
 
 
 
@@ -18,6 +22,8 @@ app.register_blueprint ( docusign , url_prefix="/docusign"  )
 
 app.secret_key = "hello"
 app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{app.root_path}/app.db"
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 
 db = SQLAlchemy(app)
 app.config['DB'] = db
