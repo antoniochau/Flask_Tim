@@ -1,356 +1,170 @@
-body {
-    position: relative;
-    padding-top: 10px;
-  }
-  
-  #home {
-    padding-top: 50px;
-    min-height: 800px;
-    background: url(https://goo.gl/0Yn1Qu) no-repeat center center fixed;
-    background-size: cover;
-  }
-   
-  #about {
-    padding-top: 50px;
-    min-height: 800px;
-    background: url(https://goo.gl/ZIsftg) no-repeat center center fixed; 
-    background-size: cover;
-  }
-  
-  #contacts {
-    padding-top: 50px;
-    min-height: 800px;
-    background: url(https://goo.gl/ppXbqH) no-repeat center center fixed; 
-    background-size: cover;
-  }
-  
-  #projects {
-    padding-top: 50px;
-    min-height: 800px;
-    background: url(https://goo.gl/Rdqo5C) no-repeat center center fixed; 
-    background-size: cover;
-  }
-  
-  @media all and (max-device-width: 1024px) {
-    #home {
-      background-attachment: scroll;
-    }
-    #about {
-      background-attachment: scroll;
-    }
-    #projects {
-      background-attachment: scroll;
-    }
-    #contacts {
-      background-attachment: scroll;
-    }
-  }
-  
-  .translucent {
-    background-color: rgba(255, 255, 255, 0.65)!important;
-  }
-  
-  .centered-container {
-    text-align:center;
-  }
-  
-  .headline {
-      font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  .button-list {
-    list-style-type: none;
-  }
-  
-  .button-list li {
-    margin-bottom: 10px;
-  }
-  
-  .myHR {
-    border-style: inset;
-    border-width: 1px;
-    margin-top: 10px;
-  }
-  
-  .Three-D{
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1em;
-  font-size: 50px;
-  text-shadow:0px 0px 0 rgb(231,231,231),1px 1px 0 rgb(216,216,216),2px 2px 0 rgb(202,202,202),3px 3px 0 rgb(187,187,187),4px 4px 0 rgb(173,173,173),5px 5px 0 rgb(158,158,158), 6px 6px 0 rgb(144,144,144),7px 7px 6px rgba(214, 175, 175, 0.6),7px 7px 1px rgba(201, 171, 171, 0.5),0px 0px 6px rgba(4, 2, 2, 0.2);}
-  
-.Three-D a { 
-    text-decoration: none;
-
-    color: yellow;
+main {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  position: absolute;
 }
-
-  .thumbnail iframe {
-    width: 800px;
-    height: 600px;
+header {
+  float: right;
+  width: 100%;
+  text-align: right;
+  position: fixed;
+  background-color: #ffffff;
+}
+nav ul li {
+  list-style-type: none;
+  display: inline;
+  font-size: 20px;
+  font-weight: 500;
+  padding-right: 50px;
+}
+#nav-bar a {
+  text-decoration: none;
+  color: rgba(65, 63, 63, 0.884);
+}
+#nav-bar a:hover {
+  color: rgb(66, 6, 122);
+}
+#welcome-section {
+  display: flex;
+  flex-direction: row;
+  padding-top: 155px;
+  height: 100%vh;
+}
+.image {
+  width: 500px;
+  height: 300px;
+}
+h1 {
+  letter-spacing: 7px;
+  font-weight: 680;
+  color: #011640;
+}
+h2 {
+  font-weight: 400;
+  color: #011640;
+}
+.titles {
+  margin-left: 150px;
+}
+.title-project h2 {
+  text-align: left;
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  width: 100%;
+}
+#projects {
+  background-color: rgba(239, 240, 218, 0.622);
+  margin-left: 250px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+}
+span {
+  text-align: left;
+  margin-left: 350px;
+  margin-right: 150px;
+}
+span p {
+  text-align: left;
+  margin-left: 200px;
+  font-size: 25px;
+}
+.about-me {
+  text-align: left;
+  margin-right: 80px;
+  margin-left: 180px;
+  background-color: #ffffff;
+}
+.about-me h2 {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: #011640;
+}
+.about-me p {
+  letter-spacing: 1px;
+  font-size: 25px;
+}
+.img-port {
+  width: 100px;
+  height: 100px;
+}
+footer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  letter-spacing: 1px;
+  text-align: center;
+  color: rgb(29, 1, 1);
+  background-color: #ecf0f7;
+}
+.footer-img {
+  width: 60px;
+  height: 60px;
+}
+.footer-img2 {
+  width: 930px;
+  height: 60px;
+}
+@media screen and (max-width: 660px) {
+  #nav-bar {
+    font-size: 45px;
+    text-align: center;
+    padding-right: 50px;
+    padding-left: 50px;
   }
-  
-  .thumbnail {
-    position: relative;
-    -ms-zoom: 0.25;
-    -moz-transform: scale(0.25);
-    -moz-transform-origin: 0 0;
-    -o-transform: scale(0.25);
-    -o-transform-origin: 0 0;
-    -webkit-transform: scale(0.25);
-    -webkit-transform-origin: 0 0;
-    overflow: hidden;
+  nav ul li {
+    list-style-type: none;
+    font-size: 35px;
+    font-weight: 500;
+    padding-right: 50px;
   }
-  
-  .portfolio-text {
-    margin: 0 0 0 0;
-    background-color: blue;
-    color: white;
-  }
-  
-  .proj-gallery {
-    display: table;
-  }
-  
-  .proj-item {
-    display: block;
-  }
-  
-  .proj-item img {
-    width: 320px;
-    height: 180px;
-  }
-
-
-  :root {
-    --bg-color: rgb(20, 20, 20);
-    --card-color: rgb(23, 23, 23);
-  }
-  
-
-  
-  #cards {
+  #welcome-section {
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px;  
-    max-width: 916px;
-    width: calc(100% - 20px);
-  }
-  
-  #cards:hover > .card::after {
-    opacity: 1;
-  }
-  
-  .card {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    cursor: pointer;
-    display: flex;
-    height: 260px;
     flex-direction: column;
-    position: relative;
-    width: 300px;  
+    text-align: center;
   }
-  
-  .card:hover::before {
-    opacity: 1;
+  #welcome-section h1 {
+    font-size: 60px;
   }
-  
-  .card::before,
-  .card::after {
-    border-radius: inherit;
-    content: "";
-    height: 100%;
-    left: 0px;
-    opacity: 0;
-    position: absolute;
-    top: 0px;
-    transition: opacity 500ms;
+  #welcome-section h2 {
+    font-size: 55px;
+  }
+  #about {
+    font-size: 55px;
+  }
+  .about-me p {
+    font-size: 50px;
+  }
+  .title-project h2 {
+    font-size: 55px;
+  }
+  span p {
+    font-size: 47px;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-align: center;
+  }
+  #projects {
+    display: flex;
+    flex-direction: column
+  }
+  .img-port {
+    height: 150px;
+    width: 150px;
+  }
+  .project-tile a {
+    color: #011640;
+    text-align: left;
+    font-size: 40px;
+    text-decoration: none;
+  }
+  .project-tile p {
+    font-size: 40px;
     width: 100%;
   }
-  
-  .card::before {
-    background: radial-gradient(
-      800px circle at var(--mouse-x) var(--mouse-y), 
-      rgba(255, 255, 255, 0.06),
-      transparent 40%
-    );
-    z-index: 3;
+  footer p {
+    font-size: 40px;
   }
-  
-  .card::after {  
-    background: radial-gradient(
-      600px circle at var(--mouse-x) var(--mouse-y), 
-      rgba(255, 255, 255, 0.4),
-      transparent 40%
-    );
-    z-index: 1;
-  }
-  
-  .card > .card-content {
-    background-color: var(--card-color);
-    border-radius: inherit;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    inset: 1px;
-    padding: 10px;
-    position: absolute;
-    z-index: 2;
-  }
-  
-  /* -- ↓ ↓ ↓ extra card content styles ↓ ↓ ↓ -- */
-  
-
-  
-  i {  
-    color: rgb(240, 240, 240);
-  }
-  
-  .card-image {
-    align-items: center;
-    display: flex;
-    height: 140px;
-    justify-content: center;
-    overflow: hidden;
-  }
-  
-  .card-image > i {
-    font-size: 6em;
-    opacity: 0.25;
-  }
-  
-  .card-info-wrapper {
-    align-items: center;
-    display: flex;
-    flex-grow: 1;
-    justify-content: flex-start;
-    padding: 0px 20px;
-  }
-  
-  .card-info {
-    align-items: flex-start;
-    display: flex;
-    gap: 10px;
-  }
-  
-  .card-info > i {  
-    font-size: 1em;
-    height: 20px;
-    line-height: 20px;
-  }
-  
-  .card-info-title > h3 {
-    font-size: 1.1em;
-    line-height: 20px;
-  }
-  
-  .card-info-title > h4 {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.85em;
-    margin-top: 8px;
-  }
-  
-  /* -- ↓ ↓ ↓ some responsiveness ↓ ↓ ↓ -- */
-  
-  @media(max-width: 1000px) {
-    body {
-      align-items: flex-start;  
-      overflow: auto;
-    }
-    
-    #cards {    
-      max-width: 1000px;
-      padding: 10px 0px;
-    }
-    
-    .card {
-      flex-shrink: 1;
-      width: calc(50% - 4px);
-    }
-  }
-  
-  @media(max-width: 500px) {
-    .card {
-      height: 180px;
-    }
-    
-    .card-image {
-      height: 80px;  
-    }
-    
-    .card-image > i {
-      font-size: 3em;
-    }
-      
-    .card-info-wrapper {
-      padding: 0px 10px;
-    }
-    
-    .card-info > i { 
-      font-size: 0.8em; 
-    }
-    
-    .card-info-title > h3 {
-      font-size: 0.9em;
-    }
-  
-    .card-info-title > h4 {
-      font-size: 0.8em;
-      margin-top: 4px;
-    }
-  }
-  
-  @media(max-width: 320px) {
-    .card {
-      width: 100%;
-    }
-  }
-  
-  /* -- ↓ ↓ ↓ YouTube link styles ↓ ↓ ↓ -- */
-  
-  #youtube-link {
-    bottom: 10px;
-  }
-  
-  #youtube-link > i {
-    color: rgb(239, 83, 80);
-  }
-  
-  #source-link {
-    bottom: 60px;
-  }
-  
-  #source-link > i {
-    color: rgb(94, 106, 210);
-  }
-  
-  .link {
-    align-items: center;
-    backdrop-filter: blur(3px);
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
-    cursor: pointer;  
-    display: inline-flex;
-    gap: 5px;
-    left: 10px;
-    padding: 10px 20px;
-    position: fixed;
-    text-decoration: none;
-    z-index: 100;
-  }
-  
-  .link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-  
-  .link > i, .link > span {
-    height: 20px;
-    line-height: 20px;
-  }
-  
-  .link > span {
-    color: white;
-  }
+}

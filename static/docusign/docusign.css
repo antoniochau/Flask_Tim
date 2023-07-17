@@ -84,7 +84,9 @@ h1 + p {
   margin: 48px 0 48px 0;
   padding: 0 60px;
 }
-h2 { margin-bottom: 18px; }
+h2 { margin-bottom: 18px;
+  font-size:20px;
+  text-align: center; }
 
 
 

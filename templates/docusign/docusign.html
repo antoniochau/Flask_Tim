@@ -5,7 +5,7 @@
 
   <div id="home" class="container-fluid">
     <div class="jumbotron translucent">
-      <h1 class="text-primary text-center Three-D"><b>Digital Signing a Document</b></h1>
+      <h2 class="text-primary text-center Three-D"><b>Digital Signing a Document</b></h1>
       <h2 class="text-center headline">Accept only .PDF files</h2>
       <hr class="myHR">
       <div id="projects" class="container-fluid">
@@ -20,18 +20,16 @@
       
       <hr/> <!-- The HGROUP - Dark Shade Division -->      
 
-      <h2>Fieldset & Legend Example</h2>
+
       <form action="/docusign/" method="POST" enctype="multipart/form-data">
         <fieldset>
-          <legend>Example of a fieldsdet</legend>
+          <legend>Input your name and select file to be signed</legend>
           <label for="Name">Name:</label>
           <input type="text" id="Name">
-          <label for="Email">Email:</label>
-          <input type="text" id="Email">
-          <label for="Date-of-birth">Date of birth:</label>
-          <input type="text" id="Date-of-birth">
+          <label for="file">Upload file to be signed:</label>
           <input type="file" value="file" name="file">
-          <input type="submit" value="Submit now">
+          <BR><BR>
+          <input type="submit" value="Submit now" name="Submit">
         </fieldset>
       </form>
 

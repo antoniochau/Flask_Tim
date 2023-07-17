@@ -1,10 +1,14 @@
 from blueprints.docusign import bp as docusign
-from flask import Flask, render_template, session, request, flash, redirect, url_for
+from flask import Flask, render_template, session, request, flash, redirect, url_for, send_from_directory, send_file
 from flask_sqlalchemy import SQLAlchemy
 from flask import current_app
-import os
+import os, shutil
 from werkzeug.utils import secure_filename
-
+from reportlab.pdfgen import canvas
+from reportlab.lib.units import inch
+from reportlab.lib import colors
+from reportlab.lib.pagesizes import A4
+from PyPDF2 import PdfFileReader, PdfFileWriter
 
 
 ALLOWED_EXTENSIONS = {'txt', 'pdf'}
@@ -12,6 +16,15 @@ ALLOWED_EXTENSIONS = {'txt', 'pdf'}
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+def download(path):
+    #print ( os.path.abspath(current_app.config['UPLOAD_FOLDER']) )
+    #return send_from_directory( os.path.abspath(current_app.config['UPLOAD_FOLDER']), filename, as_attachment=True)
+    print ( path)
+    return send_file(path, as_attachment=True)
+
+    #return send_from_directory( os.path.abspath(current_app.config['UPLOAD_FOLDER']), filename)
 
 
 
@@ -43,9 +56,18 @@ def index():
 
             print ( file)
             filename = secure_filename(file.filename)
+            newfilename = "aaa" + filename
             absolute_path = os.path.abspath(current_app.config['UPLOAD_FOLDER']+filename)
             print ( absolute_path)
-            file.save(os.path.join(current_app.config['UPLOAD_FOLDER'], filename))
+
+            file_full_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
+            new_file_full_path = os.path.join(current_app.config['UPLOAD_FOLDER'], newfilename)
+
+            file.save(file_full_path)
+
+            shutil.copyfile(file_full_path, new_file_full_path)
+            result = download ( new_file_full_path)
+            return ( result )
             return redirect(request.url)
             
 
