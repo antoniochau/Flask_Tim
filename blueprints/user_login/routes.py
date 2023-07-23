@@ -33,7 +33,7 @@ def login() :
 
         #found_user = users.query.filter_by(name=user).first()
 
-        if access_code == "1928":
+        if access_code == "0920":
             #session['email'] = found_user.email
             session['access_right'] = True
             flash ( "login success")

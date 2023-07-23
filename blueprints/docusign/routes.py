@@ -16,6 +16,7 @@ import time
 import warnings
 import glob, os, sys, shutil, io
 import PIL
+import textwrap
 
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
@@ -65,8 +66,19 @@ def makeWatermark(  inputtext ):
     pdf.setFont("Times-Roman", 10)
     pdf.setFont('Vera', 12)
     pdf.rotate(20)
-    pdf.rect(100, 280, 100, 100, stroke=1, fill=0) 
-    pdf.drawCentredString(150, 330, f"{inputtext}"  )
+    #pdf.rect(100, 280, 100, 100, stroke=1, fill=0) 
+    pdf.circle(150, 330, 60, stroke=1, fill=0) 
+
+    wrapper = textwrap.TextWrapper(width=15)
+    word_list = wrapper.wrap(text = inputtext )
+
+# Print output
+    y = 330
+    for element in word_list:
+        pdf.drawCentredString(150, y, element  )
+        y -= 15
+
+    #pdf.drawCentredString(150, 330, f"{inputtext}"  )
     
     pdf.setFillColor(colors.black, alpha=0.8)
     pdf.setFont("Times-Roman", 7)
@@ -84,8 +96,7 @@ def merge_watermark_to_pdf(  form_pdf_file, watermark_pdf_file ):
     
     watermark = watermark_pdf_file
 
-    merged = os.path.join(current_app.config['UPLOAD_FOLDER'], request + "Watermarked.pdf")
-
+    merged = os.path.join(current_app.config['UPLOAD_FOLDER'], request + "_Signed.pdf")
 
     with open(pdf_file, "rb") as input_file, open(watermark, "rb") as watermark_file:
         input_pdf = PdfReader(input_file)
@@ -130,7 +141,7 @@ def index():
         file = request.files['file']
         # If the user does not select a file, the browser submits an
         # empty file without a filename.
-        print ("fdfdaaa")   
+        
         if file.filename == '':
             flash('No selected file')
             return redirect(request.url)
@@ -138,31 +149,27 @@ def index():
             
             signed_name = request.form['Name']
 
-            print ( signed_name)
-
-
             filename = secure_filename(file.filename)
-            newfilename = "aaa" + filename
+            #signed_filename =  filename + "_signed"
 
+            input_file = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
+            #output_file = os.path.join(current_app.config['UPLOAD_FOLDER'], signed_filename )
 
-            file_full_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
-            new_file_full_path = os.path.join(current_app.config['UPLOAD_FOLDER'], newfilename)
+            file.save(input_file)
 
-            file.save(file_full_path)
-
-            pdf_file = Path ( file_full_path )
+            input_file_path = Path ( input_file )
     
             watermark_pdf_file = makeWatermark (  signed_name  )
             
-            new_file_full_path = merge_watermark_to_pdf(  pdf_file, watermark_pdf_file )
-            new_file_full_path = Path(new_file_full_path)
+            output_file = merge_watermark_to_pdf(  input_file_path , watermark_pdf_file )
+            output_file_path = Path( output_file )
 
-            print ( "aa" , new_file_full_path.name )
+   
 
-            new_file_full_path = os.path.join(current_app.config['UPLOAD_FOLDER'], new_file_full_path.name )
+            output_file_path_str = os.path.join(current_app.config['UPLOAD_FOLDER'], output_file_path.name )
 
             # shutil.copyfile(file_full_path, new_file_full_path)
-            result = download ( new_file_full_path)
+            result = download ( output_file_path_str )
             return ( result )
             return redirect(request.url)
             
