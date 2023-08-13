@@ -17,6 +17,7 @@ import warnings
 import glob, os, sys, shutil, io
 import PIL
 import textwrap
+import qrcode
 
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
