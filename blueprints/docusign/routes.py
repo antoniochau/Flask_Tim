@@ -57,6 +57,30 @@ def download(path):
     #return send_from_directory( os.path.abspath(current_app.config['UPLOAD_FOLDER']), filename)
 
 
+
+def qr_makeWatermark(  inputtext ):
+    
+    img = qrcode.make( inputtext )
+    # Saving as an image file
+    QRcode_file = os.path.join(current_app.config['UPLOAD_FOLDER'], "qrcode.png" )
+    img.save( QRcode_file )
+
+    watermarkfile = os.path.join(current_app.config['UPLOAD_FOLDER'], "qr_watermark.pdf")
+    tmp_file = Path ( watermarkfile )
+    pdf = canvas.Canvas(  str( tmp_file  ), pagesize=A4)
+   
+
+    x_start = 50
+    y_start = 600
+    pdf.drawImage(QRcode_file, x_start, y_start, width=50, preserveAspectRatio=True, mask='auto')
+    pdf.setFillColor(colors.red, alpha=0.5)
+    pdf.showPage()
+    
+    pdf.save()
+    
+    
+    return ( tmp_file )
+
 def makeWatermark(  inputtext ):
     
     watermarkfile = os.path.join(current_app.config['UPLOAD_FOLDER'], "watermark.pdf")
@@ -72,21 +96,15 @@ def makeWatermark(  inputtext ):
 
     wrapper = textwrap.TextWrapper(width=15)
     word_list = wrapper.wrap(text = inputtext )
+    
 
-# Print output
     y = 330
     for element in word_list:
         pdf.drawCentredString(150, y, element  )
         y -= 15
 
-    #pdf.drawCentredString(150, 330, f"{inputtext}"  )
-    
     pdf.setFillColor(colors.black, alpha=0.8)
-    pdf.setFont("Times-Roman", 7)
-    
-    #pdf.drawCentredString(320, 400  , f"{msg}"  )
-    
-    
+    pdf.setFont("Times-Roman", 7)    
     pdf.save()
     return ( tmp_file )
 
@@ -215,9 +233,9 @@ def QRindex():
 
             input_file_path = Path ( input_file )
     
-            watermark_pdf_file = makeWatermark (  signed_name  )
+            qr_watermark_pdf_file = qr_makeWatermark (  signed_name  )
             
-            output_file = merge_watermark_to_pdf(  input_file_path , watermark_pdf_file )
+            output_file = merge_watermark_to_pdf(  input_file_path , qr_watermark_pdf_file )
             output_file_path = Path( output_file )
 
    
@@ -230,5 +248,5 @@ def QRindex():
             return redirect(request.url)
             
     
-    return render_template ( "docusign/docusign.html")
+    return render_template ( "docusign/QRdocusign.html")
     
