@@ -2,7 +2,7 @@ from blueprints.user_login import bp as user_login
 from flask import Flask, render_template, session, request, flash, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask import current_app
-
+import qrcode
 
 
 

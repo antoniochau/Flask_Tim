@@ -125,7 +125,7 @@ def merge_watermark_to_pdf(  form_pdf_file, watermark_pdf_file ):
 @docusign.route('/index' , methods=['GET', 'POST']) 
 @docusign.route('/' , methods=['GET', 'POST']) 
 def index():
-    print ( "fdf")
+    
     if "access_right" not in session :
         return redirect ( url_for("user_login.index"))
 
@@ -173,9 +173,61 @@ def index():
             return ( result )
             return redirect(request.url)
             
+    
+    return render_template ( "docusign/docusign.html")
+    
 
 
+@docusign.route('/QR' , methods=['GET', 'POST']) 
+def QRindex():
+    
+    if "access_right" not in session :
+        return redirect ( url_for("user_login.index"))
 
+
+ 
+    if request.method == 'POST':
+        # check if the post request has the file part
+        print ( request.files['file'])
+        if 'file' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
         
+        file = request.files['file']
+        # If the user does not select a file, the browser submits an
+        # empty file without a filename.
+        
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            
+            signed_name = request.form['Name']
+
+            filename = secure_filename(file.filename)
+            #signed_filename =  filename + "_signed"
+
+            input_file = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
+            #output_file = os.path.join(current_app.config['UPLOAD_FOLDER'], signed_filename )
+
+            file.save(input_file)
+
+            input_file_path = Path ( input_file )
+    
+            watermark_pdf_file = makeWatermark (  signed_name  )
+            
+            output_file = merge_watermark_to_pdf(  input_file_path , watermark_pdf_file )
+            output_file_path = Path( output_file )
+
+   
+
+            output_file_path_str = os.path.join(current_app.config['UPLOAD_FOLDER'], output_file_path.name )
+
+            # shutil.copyfile(file_full_path, new_file_full_path)
+            result = download ( output_file_path_str )
+            return ( result )
+            return redirect(request.url)
+            
+    
     return render_template ( "docusign/docusign.html")
     
